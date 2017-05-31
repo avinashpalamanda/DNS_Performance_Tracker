@@ -45,7 +45,7 @@ double DNSResolver::QueryResolve_(std::string domain_name) {
 
   // Gets the start and stop timestamp ,queries the domain with a type A query message.
   GetTimestamp(&start);
-  p = ldns_resolver_query(res, domain, LDNS_RR_TYPE_MX, LDNS_RR_CLASS_IN, LDNS_RD);
+  p = ldns_resolver_query(res, domain, LDNS_RR_TYPE_A, LDNS_RR_CLASS_IN, LDNS_RD);
   GetTimestamp(&stop);
 
   double latency = double((stop.tv_sec-start.tv_sec)*1000+(double)(stop.tv_nsec-start.tv_nsec)/1000000);  // Calculates latency in ms.
