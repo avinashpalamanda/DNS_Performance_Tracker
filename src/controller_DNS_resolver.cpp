@@ -6,7 +6,7 @@
 
 // Function is used to obtain the current system timestamp.
 void GetTimestamp(struct timespec* temp) {
-  if (timespec_get(temp, TIME_UTC) == -1) {  // In case if the timestamp is not able to be obtained, the code exits.
+  if (timespec_get(temp, CLOCK_MONOTONIC) == -1) {  // In case if the timestamp is not able to be obtained, the code exits.
       throw std::string("Error in Getting clock\n");
       exit(EXIT_FAILURE);
   }
